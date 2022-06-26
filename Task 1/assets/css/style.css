@@ -1,0 +1,375 @@
+body{
+    background-color: #A2AEBB;
+}
+/* Below is styling of the outer div */
+#outerSection{
+    width: 60vw;
+    height: auto ;
+    margin-left : 20vw ; 
+    border: 10px solid white;
+    background: #FED99B;
+    border-radius: 100px;
+    padding-bottom: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+/*Below is styling of the head image.*/
+#headImage{
+    height: 50px ; 
+    width: 50px;
+    position: relative;
+    top: 10px; left: -20px;
+}
+/* Making common property class for future use. */
+.text-center{
+    text-align: center;
+}
+/* Below is heading of the App Styling */
+#heading{
+    font-size: 2rem;
+    color: white;
+    font-weight: 900;
+    font-family: monospace;
+    padding : 30px 0px 30px 0px ; 
+    border-bottom: 9px solid white;
+    background-color: #1AC8ED;
+    margin-top: 0px;
+}
+/* Below is the styling for all the input fields and there labels */
+#Field1 , #Field2 , #Field3{
+    padding-left: 20px;
+    padding-bottom: 15px;
+    font-family: monospace;
+    
+    width: 100%;
+}
+#Field2 , #Field3{
+    padding-top: 20px;
+}
+#part1 , #part2{
+    width: 50%;
+    height: 100% ; 
+}
+#Field3{
+    display: flex;
+    flex-wrap: no wrap;
+    justify-content: space-between
+}
+#Field1 label , #Field2 label , #part1 label , #part2 label{
+    font-weight: 900;
+    color: #495057;
+    font-size: 1.09rem;
+}
+#Field1 input , #Field2 input , #part1 input , #part2 select{
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid #1AC8ED;
+    outline: none;
+    margin-top: 10px;
+    height: 30px ; 
+    width: 90%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 4px;
+}
+#part2 select{
+    height: 40px
+}
+#Field1 input::placeholder , #Field2 input::placeholder , #part1 input::placeholder , #part2 select::placeholder{
+    color: white;
+}
+#Field1 input:focus , #Field2 input:focus , #part1 input:focus , #part2 select:focus{
+    border: 3px solid #ffbe0b;
+    background-color: #ffbe0b ; 
+    border-radius: 4px;
+}
+/* Below is styling for the submit button */
+#btn1{
+    font-size: 1.21rem;
+    height: 60px;
+    width: 180px;
+    background-color: #fef9ef;
+    color: #0a9396;
+    font-family: monospace;
+    font-weight: 900 ;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+#btn1:hover{
+    background-color: #f0ead2;
+}
+/* Below is styling for the contact links provided by social media icons */
+#socialMedia{
+    position: relative;
+    margin-right: 60px;
+    display: flex;
+    flex-wrap: no wrap ;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+#socialMedia a{
+    color : #f1faee;
+}
+#socialMedia a i {
+    font-size: 3rem;
+}
+/* Below is styling for the container that show the most close deadline*/
+.deadLineBar{
+    background-color: #edf2f4;
+    padding-left: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: 97%;
+    height: 110px;
+    margin-left: 6px;
+}
+#closestTaskHeading{
+    color:red;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 1.25rem;
+    position: relative;
+    top: -58px; left: 50px;
+    width: 96%;
+}
+#calenderImage{
+    position: relative;
+    top: -60px;
+    left :8px
+}
+#deadlineDate{
+    color: red;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 1rem ; 
+    position: relative;
+    top: -100px; left: 50px;
+}
+/*Below is styling for the to do list heading  */
+.toDoTaskHeading{
+    margin-left: 20px;
+    font-family: monospace;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 900;
+    position: relative;
+    top: 10px;
+}
+/* Below is styling for Task Card */
+.taskCard{
+    background-color: #3bceac;
+    position: relative;
+    top: -10px ;
+    left: 10px;
+    margin-bottom: 10px;
+    height: 80px;
+    width: 98%;
+    border-radius: 30px;
+    font-family: monospace;
+    display: flex;
+    justify-content: space-between;
+}
+
+.innerCard1{
+    height: 80% ; 
+    margin-left: 10px;
+    padding-left: 10px;
+    width: 70%;
+    box-sizing: border-box;
+}
+.taskName{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    position: relative;
+    top: -15px;
+}
+.date{
+    color: #da1e37;
+    font-weight: 900;
+    font-size: 1.02rem;
+    position: relative;
+    top: -30px;
+}
+.catMentioner{
+    margin-top: 15px;
+    margin-right: 20px;
+    height: 50px ; 
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-radius: 20px;
+    color: white;
+}
+.dropDown{
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 60px);
+    width: 120px;
+    height: 40px ; 
+    color: white;
+    font-size: 1.13rem;
+    font-family: monospace;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 900;
+}
+.dropDownContainer{
+    background-color: #2b2d42;
+    position: absolute;
+    bottom: -150px;
+    left: 4%;
+    width: 93%;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: none;
+    color: white;
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-left: 10px;
+}
+
+.minutesHeading{
+    font-size: 1.12rem;
+    color: white;
+    font-family: monospace;
+    font-weight: 900;
+}
+.head1{
+    position: relative;
+    top: -7px;
+}
+/* Below is styling for the Delete Button */
+.deleteBtn{
+    margin-top: 24px;
+    margin-right: 20px;   
+}
+.deleteBtn a{
+    color: #ffffff;
+}
+.deleteBtn a:hover{
+    color: red;
+}
+/* Responsiveness for screen below and equal to 1100px */
+@media screen and (max-width: 1100px){
+    #outerSection{
+        width: 70vw;
+        margin-left: 15vw;
+    }
+}
+/* Responsiveness for screen below and equal to 900px */
+@media screen and (max-width: 900px){
+    #outerSection{
+        position: relative;
+        width: 92vw;
+        margin-left: 1vw;
+    }
+}
+/* Responsiveness for screen below and equal to 750px */
+@media screen and (max-width: 750px){
+    #outerSection{
+        margin-left: 0px ; 
+    }
+}
+/* Responsiveness for screen below and equal to 620px */
+@media screen and (max-width: 620px){
+    #Field1 input , #Field2 input , #part1 input , #part2 select{
+        font-size: 1.25rem;
+    }
+}
+/* Responsiveness for screen below and equal to 572px */
+@media screen and (max-width: 572px){
+    #closestTaskHeading{
+        font-size: 1rem;
+    }
+    #deadlineDate{
+        font-size: 0.8rem;
+    }
+    .deadLineBar{
+        margin-left: 2px;
+        width: 98%;
+    }
+    #btn1 {
+        font-size: 1rem;
+        height: 50px;
+        width: 150px;
+    }
+    .taskName {
+        font-size: 1rem;
+        top: -1px;
+    }
+    .date {
+        font-size: 0.8rem;
+        top: -14px;
+    }
+    .deleteBtn {
+        font-size: 0.7rem;
+        margin-top: 30px;
+        margin-right: 20px;
+    }
+    .catMentioner {
+        margin-top: 25px;
+        margin-right: 21px;
+        height: 30px;
+        font-size: 1rem;
+        color: white;
+    }
+    .taskCard{
+        height: 100px ; 
+    }
+    .minutesHeading {
+        font-size: 1rem;
+    }
+    .dropDownContainer{
+        font-size: 1.1rem;
+    }
+}
+/* Responsiveness for screen below and equal to 400px. 
+This is for smartphone screens */
+@media screen and (max-width : 400px){
+    #outerSection{
+        border-radius: 0px;
+        border: none;
+        width: 100vw;
+        margin: 0px;
+        left: -10px;
+        top: -10px;
+    }
+    #Field1 input, #Field2 input, #part1 input, #part2 select{
+        font-size: 0.9rem;
+    }
+    #btn1{
+        font-size: 0.9rem;
+        padding: 0px;
+    }
+    #socialMedia a i {
+        font-size: 2rem;
+    }
+    .deadLineBar{
+        border-radius: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+    .taskCard{
+        left: 5px;
+    }
+    .catMentioner{
+        font-size: 0.8rem;
+        width: 80px !important;
+    }
+}
+

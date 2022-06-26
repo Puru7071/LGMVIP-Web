@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <!-- This is the fevion of the page.-->
+    <link rel="shorcut icon" type="image/x-icon" href="./images/fevion.svg">
+    <!-- Below two are for the font awesome cdn. -->
+    <script src="https://kit.fontawesome.com/22406f9d4d.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" rel="stylesheet" type="text/css"/>
+    <!-- This is css file for frontend styling and responsiveness.-->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+        <!-- This is the outer div containing all the components of the to do list app. -->
+    <div id = "outerSection">
+        <p class="text-center" id = "heading"><img src="./images/head.svg" id="headImage">Todo App</p>
+        <!-- heading of the app. -->
+
+        <form action="/add-Task" method="POST">
+        <!-- 
+            This is first input of type text that is required to filled by user and 
+            input cann't be greater than 20 characters. It take care of description.
+        -->
+            <div id="Field1">
+                <label for="inputField1">Task Name <i class="fas fa-level-down-alt" style="position: relative; top: 5px;"></i></label><br>
+                <input maxlength="20" type="text" name="Task_Name" id="inputField1" placeholder="Tell me, what's the task? " required>
+            </div>
+        <!-- 
+            This is second input of type text that is required to filled by user and 
+            input cann't be greater than 80 characters. It take care of minutes of the task.
+        -->
+            <div id="Field2">
+                <label for="inputField2">Description <i class="fas fa-level-down-alt" style="position: relative; top: 5px;"></i></label><br>
+                <input type="text" maxlength="80" name="Task_Description" id="inputField2" placeholder="Anything to remember about task, Tell me..." required>
+            </div>
+            
+            <div id="Field3">
+        <!-- 
+            This is third input of type date that is required to filled by user. It take care of deadline.
+        -->
+                <div id="part1">
+                    <label for="inputField3">Due-Date <i class="fas fa-level-down-alt" style="position: relative; top: 5px;"></i></label><br>
+                    <input type="date" placeholder="Select Date" id="inputField3" required name="deadline">
+                </div>
+        <!-- 
+            This is third input of type select that is required to filled by user and input is among the three
+            options provided. It take care of category of task.
+        -->
+                <div id = "part2">
+                    <label for="inputField4">Category <i class="fas fa-level-down-alt" style="position: relative; top: 5px;"></i></label><br>
+                    <select id="inputField4" required name="category" >
+                        <option>Select Category</option>
+                        <option>Personal</option>
+                        <option>Work</option>
+                        <option>Home</option>
+                    </select>
+                </div>
+            </div>
+            <div id = "Field3" class="widthDefination">
+        <!-- 
+            This is the button for submitting the form.
+        -->
+                <button type="submit" id="btn1">
+                    <i class="fas fa-plus-circle"></i> Create Task
+                </button>
+        <!-- 
+            This is social media div that contain links for users to contact to maker for future dealings.
+        -->
+                <div id="socialMedia">
+                    <a class="socialMediaIcons" href="https://www.linkedin.com/in/puru-bhargava-6330031b7/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a class="socialMediaIcons" href="https://www.instagram.com/puru_bhargava_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="socialMediaIcons" href="https://github.com/Puru7071" target="_blank"><i class="fab fa-github-square"></i></a>
+                    <a class="socialMediaIcons" href="https://www.snapchat.com/add/pbh21758" target="_blank"><i class="fab fa-snapchat-square"></i></a>
+                </div>
+            </div>
+            
+        </form>
+        <!-- 
+            This section is for displaying the most close deadline with the task name and deadline date.
+        -->
+        <div class="deadLineBar">
+            <img src="./images/alert-triangle.svg">
+        <!-- 
+            This is the embedded js that takes care if there is no task in the database then it shows a 
+            congratulations message that no task available.
+
+            If in locals the value of the closestTask is null it means no task in database.
+        -->
+            <% if(closestTask != null){%>
+                <p id="closestTaskHeading">
+                    Tighten Your Shoelace Deadline is on way : <%= closestTask%>
+               </p>
+            <%}else{%>
+                <p id="closestTaskHeading">
+                    Bingo! So Far no Deadlines
+               </p>
+            <%}%>
+            <img src="./images/calendar.svg" id="calenderImage">
+            <%if(closestTask != null){%>
+                <p id="deadlineDate">
+                    <%= closestDate%>
+                </p>
+            <%}else{%>
+                <p id="deadlineDate">
+                    No Deadlines
+                </p>
+            <%}%>
+        </div>
+        <!-- This is the heading of the task to do list. -->
+
+        <p class="toDoTaskHeading"><i class="fas fa-bell-on"></i> Tasks To Do:</p>
+
+        <!-- 
+            This is to show the number task that are there in the database by using property 
+            of the locals ie number.
+        -->
+        <h3 style="margin-left: 20px; margin-top: -10px; font-family: monospace; font-weight: 900;">Pending Tasks: <%= number%></h3>
+        <!-- 
+            This is embedded js that use for of loop to traverse over the property of locals that is tasksToDo and 
+            display each tasks annd there related info of the task under some styling done with css and js.
+        -->
+        <% for(let i of tasksToDo){%>
+            <div class="taskCard">
+                <div class="innerCard1">
+        <!-- 
+            This is to show the task name task using property of the locals ie Name.
+        -->
+                    <p class="taskName">
+                        <%= i.Name%> 
+                    </p>
+        <!-- 
+            This is to show the task deadline task using property of the locals ie deadline.
+        -->                    
+                    <p class="date"><i class="far fa-calendar-alt"></i> <%= i.deadline%></p>
+                </div>
+
+                <div class="dropDown" data-isExpanded="false">
+                    <p class="contract">Expand</p> <img src="./images/dropdown.svg" class="arrow">
+                </div>
+        <!-- 
+            This is the expandable text area that helps user to see if he/she added some additional info about 
+            the task and its accessed using property of the locals ie description.
+        -->
+                <div class="dropDownContainer">
+                    <p class="minutesHeading">
+                        <img src="./images/edit.svg">
+                        <span class="head1">Minutes of the Task:</span>
+                    </p>
+                    <p>
+                        <%= i.Description%>
+                    </p>
+                </div>
+    
+        <!--
+            Here it is embedded js that uses that if else construct to give different color to the category card and
+            its accessed using property of the locals ie category.
+        -->
+               <%if(i.category == "Personal"){%>
+                    <div class="catMentioner text-center" style="background-color: #f15bb5;">
+                        <%= i.category%>
+                    </div>
+                <%}%>
+                <%if(i.category == "Home"){%>
+                    <div class="catMentioner text-center" style="background-color: #8338ec;">
+                        <%= i.category%>
+                    </div>
+                <%}%>
+                <%if(i.category == "Work"){%>
+                    <div class="catMentioner text-center" style="background-color: #3a86ff;">
+                        <%= i.category%>
+                    </div>
+                <%}%>
+        <!--
+            This is the delete button to remove any task from the database.
+        -->
+                <div class="deleteBtn">
+                    <a href = "/delete-task/<%= i._id%>"><i class="fas fa-trash-alt fa-2x" ></i></a>
+                </div>
+            </div>
+
+        <% } %>
+        <!-- This js file for frontend styling and alerts -->
+        <script type="text/javascript" src="./js/script.js"></script>
+    </div>
+</body>
+</html>
